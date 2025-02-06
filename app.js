@@ -103,6 +103,14 @@ if (availableWords.length === 0) {
     this.start(); // 重新调用自身
     return;
 }
+   bindOptionListeners(callback) {
+    const options = document.querySelectorAll('.option');
+    options.forEach(option => {
+        option.addEventListener('click', () => {
+            callback(option.textContent);
+        });
+    });
+}
     // Clear any existing listeners and timer 
     this.clearQuestionTimer();  
     this.optionsDisplay.innerHTML  = ''; 
