@@ -35,7 +35,7 @@ class MemoryGame {
     // Timer properties 
     this.questionTimer  = null; 
     this.questionTimeLimit  = 15; // 15 seconds to answer 
-    this.timerDisplay  = null; 
+    this.timerDisplay = document.getElementById('question-timer'); // 需在 HTML 中添加对应元素
     
     // Prevent multiple event listeners 
     this.setupEventListeners();  
@@ -97,6 +97,12 @@ class MemoryGame {
   } 
  
   start() { 
+   // 在 start() 方法中添加以下逻辑
+if (availableWords.length === 0) {
+    this.excludedWords.clear();
+    this.start(); // 重新调用自身
+    return;
+}
     // Clear any existing listeners and timer 
     this.clearQuestionTimer();  
     this.optionsDisplay.innerHTML  = ''; 
@@ -379,4 +385,11 @@ class MemoryGame {
     return arr1.slice().sort().join('')  === arr2.slice().sort().join('');  
   } 
  
-  bindOptionListeners(callback) { 
+  bindOptionListeners(callback) {
+    const options = document.querySelectorAll('.option');
+    options.forEach(option => {
+        option.addEventListener('click', () => {
+            callback(option.textContent);
+        });
+    });
+}  // <-- 缺少闭合的大括号和方法结束
