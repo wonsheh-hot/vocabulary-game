@@ -1,19 +1,67 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vocabulary Game - Unit 1</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <h1>Vocabulary Game - Unit 1</h1>
-    <div id="game-container">
-        <div id="word-container"></div>
-        <input type="text" id="answer-input" placeholder="Enter the word">
-        <button id="submit-btn">Submit</button>
-        <div id="feedback"></div>
-    </div>
-    <script src="script.js"></script>
-</body>
-</html>
+<html lang="zh-CN"> 
+<head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
+  <title>魔法单词记忆游戏</title> 
+  <link rel="stylesheet" href="styles.css">  
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"  rel="stylesheet"> 
+</head> 
+<body> 
+  <div id="student-modal" class="student-modal"> 
+    <div class="student-modal-content"> 
+      <h2>🎓 开始学习</h2> 
+      <div class="student-input"> 
+        <input type="text" id="student-id" placeholder="请输入学号（5位数）" maxlength="5"> 
+        <input type="text" id="student-name" placeholder="请输入姓名"> 
+        <button id="start-game-btn">开始游戏</button> 
+      </div> 
+    </div> 
+  </div> 
+ 
+  <div id="app" class="container" style="display:none;"> 
+    <div class="header"> 
+      <div class="student-info"> 
+        <span id="student-display" class="student-display"></span> 
+        <div id="score-display" class="score-display">🏆 0</div> 
+      </div> 
+      <div id="progress-bar" class="progress-bar"></div> 
+    </div> 
+    
+    <div class="game-area"> 
+      <div class="animal-avatars"> 
+        <div id="fox-avatar" class="avatar">🦊</div> 
+        <div id="whale-avatar" class="avatar">🐳</div> 
+      </div> 
+      
+      <div id="word-display" class="word-display"></div> 
+      <div id="hint" class="hint"></div> 
+      <div id="options" class="options"></div> 
+      <div id="feedback" class="feedback"></div> 
+    </div> 
+    
+    <div class="achievements"> 
+      <div id="achievements-container" class="achievements-container"></div> 
+    </div> 
+  </div> 
+  
+  <div id="review-reminder" class="review-reminder"> 
+    <div class="reminder-content"> 
+      <h2>📚 复习时间到！</h2> 
+      <p>快来温习你的单词吧！</p> 
+      <button id="start-review">开始复习</button> 
+    </div> 
+  </div> 
+ 
+  <div id="game-end-modal" class="game-end-modal"> 
+    <div class="game-end-content"> 
+      <h2>🎉 学习完成！</h2> 
+      <div id="end-student-info" class="end-student-info"></div> 
+      <div id="end-score-display" class="end-score-display"></div> 
+      <div id="end-achievements" class="end-achievements"></div> 
+      <button id="restart-game-btn">重新开始</button> 
+    </div> 
+  </div> 
+ 
+  <script type="module" src="app.js"></script>  
+</body> 
+</html> 
